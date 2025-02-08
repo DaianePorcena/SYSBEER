@@ -81,4 +81,4 @@ php artisan serve
 npm run dev
 ```
 
-Agora, o sistema estará rodando localmente. Acesse o sistema pelo navegador na URL http://127.0.0.1:8000 para o backend e http://localhost:5173 para o frontend (caso esteja utilizando as configurações padrão).
+Agora, o sistema estará rodando localmente. Acesse o sistema pelo navegador na URL http://127.0.0.1:8000 
