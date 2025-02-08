@@ -127,7 +127,7 @@ export default {
     },
     async cadastrarEmbalagem() {
       try {
-        await api.post('/embalagens', this.novaEmbalagem);
+        await api.post('/embalagens/cadastrar', this.novaEmbalagem);
         this.novaEmbalagem.tipo = '';
         this.fetchEmbalagens();
       } catch (error) {

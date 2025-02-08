@@ -83,7 +83,7 @@ export default {
                 page: 1,
                 perPage: 10,
             },
-            perPageOptions: [5, 10, 15, 20],
+            perPageOptions: [10, 15, 20],
         };
     },
     methods: {
