@@ -1,3 +1,53 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Definição de variáveis globais */
+:root {
+    --marrom-escuro: #4A2C2A;
+    --dourado: #FFD700;
+    --bege: #F4E9CD;
+    --ambar: #FF8C42;
+    --branco: #FFFFFF;
+    --preto: #000000;
+  
+    /* Fontes */
+    --font-size-base: 16px;
+    --font-size-large: 20px;
+    --font-size-small: 14px;
+  
+    /* Espaçamentos */
+    --spacing-small: 8px;
+    --spacing-medium: 16px;
+    --spacing-large: 24px;
+  
+    /* Bordas */
+    --border-radius: 5px;
+  }
+  
+  /* Reset de estilos básicos */
+  body, h1, h2, h3, h4, h5, h6, p, ul, ol, table {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilos globais */
+  body {
+    font-family: Arial, sans-serif;
+    font-size: var(--font-size-base);
+    background-color: var(--marrom-escuro);
+    color: var(--bege);
+  }
+  
+  button {
+    background-color: var(--ambar);
+    color: var(--branco);
+    border-radius: var(--border-radius);
+    border: none;
+    padding: var(--spacing-small) var(--spacing-medium);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: var(--dourado);
+    color: var(--marrom-escuro);
+  }
+  
