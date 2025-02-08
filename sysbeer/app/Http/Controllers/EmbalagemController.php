@@ -9,13 +9,20 @@ class EmbalagemController extends Controller
 {
     public function pesquisarEmbalagem(Request $request)
     {
+        $request->validate([
+            'tipo' => 'nullable|string|max:255',
+            'per_page' => 'nullable|integer|min:1',
+            'page' => 'nullable|integer|min:1',
+        ]);
+
         $query = Embalagem::query();
-        if ($request->has('tipo')) {
-            $query->where('tipo', 'like', '%' . $request->nome . '%');
+
+        if ($request->filled('tipo')) {
+            $query->where('tipo', 'like', '%' . $request->tipo . '%');
         }
 
-        $perPage = $request->per_page ?? 10;
-        $page = $request->page ?? 1;
+        $perPage = $request->input('per_page', 5);
+        $page = $request->input('page', 1);
 
         $embalagens = $query->paginate($perPage, ['*'], 'page', $page);
 
@@ -25,11 +32,13 @@ class EmbalagemController extends Controller
     public function cadastrarEmbalagem(Request $request)
     {
         $request->validate([
-            'tipo' => 'required|string'
+            'tipo' => 'required|string|max:255',
         ]);
 
-        $embalagens = Embalagem::create($request->all());
+        $embalagem = new Embalagem();
+        $embalagem->tipo = $request->tipo;
+        $embalagem->save();
 
-        return response()->json($embalagens, 201);
+        return response()->json($embalagem, 201);
     }
 }
