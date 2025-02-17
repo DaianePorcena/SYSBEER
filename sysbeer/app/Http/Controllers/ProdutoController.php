@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Facades\ProdutoFacade as FacadesProdutoFacade;
 use App\Models\Produto;
 use Illuminate\Http\Request;
+use ProdutoFacade;
 
 class ProdutoController extends Controller
 {
@@ -17,28 +19,8 @@ class ProdutoController extends Controller
             'page' => 'nullable|integer|min:1',
         ]);
 
-        $query = Produto::with(['categoria', 'embalagem']);
-
-        if ($request->filled('nome')) {
-            $query->where('nome', 'like', '%' . $request->nome . '%');
-        }
-
-        if ($request->filled('categoria')) {
-            $query->whereHas('categoria', function ($q) use ($request) {
-                $q->where('nome', 'like', '%' . $request->categoria . '%');
-            });
-        }
-
-        if ($request->filled('embalagem')) {
-            $query->whereHas('embalagem', function ($q) use ($request) {
-                $q->where('tipo', 'like', '%' . $request->embalagem . '%');
-            });
-        }
-
-        $perPage = $request->input('per_page', 10);
-        $page = $request->input('page', 1);
-
-        $produtos = $query->paginate($perPage, ['*'], 'page', $page);
+        $filtros = $request->only(['nome', 'categoria', 'embalagem', 'per_page', 'page']);
+        $produtos = FacadesProdutoFacade::pesquisarProdutos($filtros);
 
         return response()->json($produtos);
     }

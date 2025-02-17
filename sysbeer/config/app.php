@@ -17,6 +17,22 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Class Aliases
+    |--------------------------------------------------------------------------
+    |
+    | This array of class aliases will be registered when this application is
+    | started. If you don't want to use an alias, you may remove it from this
+    | array.
+    |
+    */
+    // 'aliases' => [
+    //     // Outros aliases...
+
+    //     'Produto' => App\Facades\ProdutoFacade::class,  // Adicionando o Facade aqui
+    // ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Environment
     |--------------------------------------------------------------------------
     |
