@@ -11,6 +11,7 @@ SysBeer é um sistema de gerenciamento para uma cervejaria, desenvolvido como pa
 - **Node.js**: v21.7.3
 
 ## Pré-requisitos
+
 - PHP 8.3 ou superior
 - Composer 2.8.5 ou superior
 - Node.js v21.7.3 ou superior
@@ -23,11 +24,16 @@ SysBeer é um sistema de gerenciamento para uma cervejaria, desenvolvido como pa
 Primeiro, faça o clone do repositório para sua máquina local:
 
 ```bash
-https://github.com/DaianePorcena/SYSBEER.git
-cd sysbeer
+git clone https://github.com/DaianePorcena/SYSBEER.git
 ```
 
 ### 2. Instalar Dependências
+
+Acesse o diretório do projeto
+
+```bash
+cd sysbeer
+```
 
 Instale as dependências do backend e frontend:
 
@@ -35,6 +41,7 @@ Instale as dependências do backend e frontend:
 composer install
 npm install
 ```
+
 ### 3. Configuração do Banco de Dados
 
 - Crie um banco de dados MySQL chamado ```sysbeer```.
@@ -43,6 +50,7 @@ npm install
 ```bash
 cp .env.example .env
 ```
+
 - Configure as variáveis de conexão do banco de dados no arquivo ```.env```:
 
 ```bash
@@ -54,7 +62,19 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
+### 5. Gerar a chave da aplicação
+
+```bash
+php artisan key:generate
+```
+
 ### 4. Rodar Migrations
+
+Criar a migração para a tabela de sessões:
+
+```bash
+php artisan makesession-table
+```
 
 Execute as migrations para criar as tabelas do banco de dados:
 
@@ -69,6 +89,7 @@ Rode os seeders para popular o banco com dados iniciais:
 ```bash
 php artisan db:seed
 ```
+
 ### 6. Rodar o Servidor PHP
 
 ```bash
@@ -81,4 +102,4 @@ php artisan serve
 npm run dev
 ```
 
-Agora, o sistema estará rodando localmente. Acesse o sistema pelo navegador na URL http://127.0.0.1:8000 
+Agora, o sistema estará rodando localmente. Acesse o sistema pelo navegador na URL http://127.0.0.1:8000
