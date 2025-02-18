@@ -62,18 +62,18 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-### 5. Gerar a chave da aplicação
+### 4. Gerar a chave da aplicação
 
 ```bash
 php artisan key:generate
 ```
 
-### 4. Rodar Migrations
+### 5. Rodar Migrations
 
 Criar a migração para a tabela de sessões:
 
 ```bash
-php artisan makesession-table
+php artisan make:session-table
 ```
 
 Execute as migrations para criar as tabelas do banco de dados:
