@@ -82,7 +82,7 @@ Execute as migrations para criar as tabelas do banco de dados:
 php artisan migrate
 ```
 
-### 5. Rodar Seeders
+### 6. Rodar Seeders
 
 Rode os seeders para popular o banco com dados iniciais:
 
@@ -90,13 +90,13 @@ Rode os seeders para popular o banco com dados iniciais:
 php artisan db:seed
 ```
 
-### 6. Rodar o Servidor PHP
+### 7. Rodar o Servidor PHP
 
 ```bash
 php artisan serve
 ```
 
-### 7. Rodar o Frontend com Vite
+### 8. Rodar o Frontend com Vite
 
 ```bash
 npm run dev
